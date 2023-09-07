@@ -1,6 +1,6 @@
 
 # ReadMe Generator
-#### by JJ Saoit ![License badge](https://img.shields.io/badge/license-GPL--3.0-green)
+#### by JJ Saoit [![License badge](https://img.shields.io/badge/license-GPL--3.0-green)](https://opensource.org/license/mit/)
 
 ## Description
 Generates a professional readme from prompted questions.
@@ -8,7 +8,7 @@ Generates a professional readme from prompted questions.
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [Credits](#credit)
+* [Credits](#credits)
 * [License](#license)
 
 ## Installation

@@ -1,15 +1,16 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
+  const licenseLink = renderLicenseLink(license);
   switch(license) {
     case 'MIT':
-      return `https://img.shields.io/badge/license-MIT-green`;
+      return `[![License badge](https://img.shields.io/badge/license-MIT-green)](${licenseLink})`;
     case 'APACHE2.0':
-      return `https://img.shields.io/badge/license-APACHE2.0-green`;
+      return `[![License badge](https://img.shields.io/badge/license-APACHE2.0-green)](${licenseLink})`;
     case 'GPL-3.O':
-      return `https://img.shields.io/badge/license-GPL--3.0-green`;
+      return `[![License badge](https://img.shields.io/badge/license-GPL--3.0-green)](${licenseLink})`;
     case 'BSD-3-CLAUSE':
-      return `https://img.shields.io/badge/license-BSD--3--CLAUSE-green`;
+      return `[![License badge](https://img.shields.io/badge/license-BSD--3--CLAUSE-green)](${licenseLink})`;
     default:
       return ``;
   }
@@ -57,6 +58,8 @@ function generateMarkdown(data) {
   const licenseBadge = renderLicenseBadge(data.license);
   //generate license section
   const licenseSection = renderLicenseSection(data.license);
+  //generate link
+  const licenseLink = renderLicenseLink(data.license);
   // readme template
   return `
 # ${data.title}
@@ -68,7 +71,7 @@ ${data.description}
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [Credits](#credit)
+* [Credits](#credits)
 * [License](#license)
 
 ## Installation
@@ -84,7 +87,7 @@ Github: ${data.github}
 Colaborators: ${data.colab}
 
 ${licenseSection}
-  `;
+`;
 }
 
 module.exports = generateMarkdown;
