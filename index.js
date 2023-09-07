@@ -33,7 +33,12 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
-        
+        if (err){
+            console.log(err);
+        }
+        else{
+            console.log('README generated :)')
+        }
     });
 }
 
@@ -54,7 +59,7 @@ function init() {
             {
                 type: 'input',
                 message: questions[2],
-                name: 'install',
+                name: 'installation',
             },
             {
                 type: 'input',
@@ -84,12 +89,14 @@ function init() {
             {
                 type: 'list',
                 message: questions[8],
-                choices: ['MIT', 'APACHE2.0', 'AFL-3.0', 'GPL-3.0', 'none'],
+                choices: ['MIT', 'APACHE2.0', 'GPL-3.0', 'BSD-3-CLAUSE', 'none'],
                 name: 'license'
             },
         ])
         .then((response) => {
             console.log(response);
+            const readmeData = generateMarkdown(response);
+            writeToFile('README.md', readmeData);
         })
 }
 
