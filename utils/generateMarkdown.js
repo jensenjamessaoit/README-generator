@@ -63,7 +63,7 @@ function generateMarkdown(data) {
   // readme template
   return `
 # ${data.title}
-#### by ${data.fullname} ![License badge](${licenseBadge})
+#### by ${data.fullname} ${licenseBadge}
 
 ## Description
 ${data.description}
